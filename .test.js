@@ -123,3 +123,15 @@ describe("Calculator - multiply method", () => {
     expect(calculator.multiply(5, 0)).toBe(0);
   });
 });
+
+
+//Task four
+describe('capitalize', () => {
+    it('takes a string as an argument and returns that string with the first character capitalized', () => {
+        expect(capitalize('hello')).toBe('Hello');
+    });
+});
+
+const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
