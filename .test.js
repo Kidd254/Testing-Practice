@@ -36,3 +36,90 @@ const result = reverseString(string);
 //assert
 expect(result).toBe(expected);
 });
+
+
+//Task Three
+class Calculator {
+  add(a, b) {
+    return a + b;
+  }
+
+  subtract(a, b) {
+    return a - b;
+  }
+
+  divide(a, b) {
+    if (b === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    return a / b;
+  }
+
+  multiply(a, b) {
+    return a * b;
+  }
+}
+
+describe("Calculator - add method", () => {
+  const calculator = new Calculator();
+
+  test("Adding two positive numbers", () => {
+    expect(calculator.add(2, 3)).toBe(5);
+  });
+
+  test("Adding two negative numbers", () => {
+    expect(calculator.add(-2, -3)).toBe(-5);
+  });
+
+  test("Adding zero to a number", () => {
+    expect(calculator.add(5, 0)).toBe(5);
+  });
+});
+
+describe("Calculator - subtract method", () => {
+  const calculator = new Calculator();
+
+  test("Subtracting two positive numbers", () => {
+    expect(calculator.subtract(5, 3)).toBe(2);
+  });
+
+  test("Subtracting two negative numbers", () => {
+    expect(calculator.subtract(-5, -3)).toBe(-2);
+  });
+
+  test("Subtracting zero from a number", () => {
+    expect(calculator.subtract(5, 0)).toBe(5);
+  });
+});
+
+describe("Calculator - divide method", () => {
+  const calculator = new Calculator();
+
+  test("Dividing two positive numbers", () => {
+    expect(calculator.divide(6, 3)).toBe(2);
+  });
+
+  test("Dividing a positive number by a negative number", () => {
+    expect(calculator.divide(6, -3)).toBe(-2);
+  });
+
+  test("Dividing by zero throws error", () => {
+    expect(() => calculator.divide(6, 0)).toThrow("Cannot divide by zero");
+  });
+});
+
+describe("Calculator - multiply method", () => {
+  const calculator = new Calculator();
+
+  test("Multiplying two positive numbers", () => {
+    expect(calculator.multiply(2, 3)).toBe(6);
+  });
+
+  test("Multiplying two negative numbers", () => {
+    expect(calculator.multiply(-2, -3)).toBe(6);
+  });
+
+  test("Multiplying zero with a number", () => {
+    expect(calculator.multiply(5, 0)).toBe(0);
+  });
+});
